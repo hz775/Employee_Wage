@@ -1,15 +1,11 @@
-from employee import Employee
+from company import Company
 
-# usecase1
+# USE CASE 7
+my_company = Company("TCS", wage_per_hour=25, max_days=20, max_hours=100)
 
-emp1=Employee("E100","Hemanth",20,8)
-emp1.check_attendance()
 
-#  usecase2
-# print(emp1.calculate_full_time_wage())
+my_company.add_employee("E101", "Hemanth", work_time=9)
+my_company.add_employee("E102", "Rohan", work_time=8)
 
-# usecase3
-# print(emp1.part_time_full_time())
 
-# usecase5
-print(emp1.calculate_monthly_wage())
+my_company.calculate_all_employee_monthly_wage()

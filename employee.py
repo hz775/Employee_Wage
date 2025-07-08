@@ -60,5 +60,8 @@ class Employee:
         print(f"\nTotal Present Days: {total_present}")
         print(f"Total Hours Worked: {total_hours}")
         return f"Total Monthly Wage: Rs.{total_wage}"
+    
+    
+
             
 
