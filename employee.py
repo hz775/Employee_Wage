@@ -21,6 +21,8 @@ class Employee:
             return f"Employee id:{self.emp_id}\n{self.name} is Present\nDaily Wage: Rs.{daily_wage}"
         else:
             return f"Employee id:{self.emp_id}\n{self.name} is Absent\nDaily Wage: Rs.0"
+        
+        
 
     
         
