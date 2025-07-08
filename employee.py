@@ -8,25 +8,27 @@ class Employee:
         self.emp_id=emp_id
     
     def check_attendance(self):
-        attendance=random.randint(0,1)
-        if attendance==1:
-            return f"Present"
-        else:
-            return f"Absent"
+        return random.randint(0, 1)  
+
+    def check_attendance(self):
+        self.attendance = random.randint(0, 1)
 
     def calculate_full_time_wage(self):
-        daily_wage=0
-        if self.check_attendance():
-            daily_wage = self.work_per_hour * self.wage_per_hour
-            return f"Employee id:{self.emp_id}\n{self.name} is Present\nDaily Wage: Rs.{daily_wage}"
+        self.check_attendance()
+        if self.attendance == 1:
+            self.daily_wage = self.work_per_hour * self.wage_per_hour
+            return f"Employee id: {self.emp_id}\n{self.name} is Present"
         else:
-            return f"Employee id:{self.emp_id}\n{self.name} is Absent\nDaily Wage: Rs.0"
-        
-        
+            self.daily_wage = 0
+            return f"Employee id: {self.emp_id}\n{self.name} is Absent\nDaily Wage: Rs.0"
 
+    def part_time_full_time(self):
+        if self.attendance != 1:
+            return ""
+        if self.work_per_hour > 8:
+            return f"{self.name} is Full time\nFull time wage: Rs.{self.daily_wage}"
+        else:
+            return f"{self.name} is Part time\nPart time wage: Rs.{self.daily_wage}"
+        
     
-        
-
-    
-
     
