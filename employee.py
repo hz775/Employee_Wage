@@ -33,5 +33,29 @@ class Employee:
                 return f"{self.name} is Part time\nPart time wage: Rs.{self.daily_wage}"
 
             
+    def calculate_monthly_wage(self):
+        total_wage = 0
+        total_present = 0
+        print(f"Employee ID: {self.emp_id}, Name: {self.name}\n")
+
+        for day in range(1, 21):
+            self.check_attendance()
+            if self.attendance == 1:
+                self.daily_wage = self.work_per_hour * self.wage_per_hour
+                total_wage += self.daily_wage
+                total_present += 1
+
+                if self.work_per_hour > 8:
+                    work_type = "Full time"
+                else:
+                    work_type = "Part time"
+
+                print(f"Day {day} -> Present, {work_type}, Work Time: {self.work_per_hour}, Daily Wage: {self.daily_wage}")
+            else:
+                self.daily_wage = 0
+                print(f"Day {day} -> Absent, Work Time: {self.work_per_hour}, Daily Wage: 0")
+
+        print(f"\nTotal Present Days: {total_present}")
+        return  f"Total Monthly Wage: {total_wage}"
         
-        
+
