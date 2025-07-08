@@ -36,26 +36,29 @@ class Employee:
     def calculate_monthly_wage(self):
         total_wage = 0
         total_present = 0
+        total_hours = 0
+        total_days = 0
+
         print(f"Employee ID: {self.emp_id}, Name: {self.name}\n")
 
-        for day in range(1, 21):
+        while total_days < 20 and total_hours + self.work_per_hour <= 100:
+            total_days += 1
             self.check_attendance()
+
             if self.attendance == 1:
                 self.daily_wage = self.work_per_hour * self.wage_per_hour
                 total_wage += self.daily_wage
                 total_present += 1
+                total_hours += self.work_per_hour
 
-                if self.work_per_hour > 8:
-                    work_type = "Full time"
-                else:
-                    work_type = "Part time"
-
-                print(f"Day {day} -> Present, {work_type}, Work Time: {self.work_per_hour}, Daily Wage: {self.daily_wage}")
+                work_type = "Full time" if self.work_per_hour > 8 else "Part time"
+                print(f"Day {total_days} -> Present, {work_type}, Work Time: {self.work_per_hour}, Daily Wage: Rs.{self.daily_wage}")
             else:
                 self.daily_wage = 0
-                print(f"Day {day} -> Absent, Work Time: {self.work_per_hour}, Daily Wage: 0")
+                print(f"Day {total_days} -> Absent, Work Time: {self.work_per_hour}, Daily Wage: Rs.0")
 
         print(f"\nTotal Present Days: {total_present}")
-        return  f"Total Monthly Wage: {total_wage}"
-        
+        print(f"Total Hours Worked: {total_hours}")
+        return f"Total Monthly Wage: Rs.{total_wage}"
+            
 
